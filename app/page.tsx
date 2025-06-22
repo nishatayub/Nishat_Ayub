@@ -397,10 +397,10 @@ function ProjectsSection() {
     },
     {
       title: 'ChattIe',
-      description: 'Real-time messaging application with modern UI and seamless communication',
+      description: 'A modern frontend UI for real-time messaging with Socket.io integration, featuring a sleek chat interface and responsive design',
       tech: ['React', 'Express.js', 'Socket.io', 'MongoDB'],
       github: 'https://github.com/nishatayub/ChattyBatty',
-      live: null
+      live: 'https://chattybatty.vercel.app'
     },
     {
       title: 'Affirmo',
