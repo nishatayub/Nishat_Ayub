@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -163,53 +164,112 @@ function HeroSection() {
         </motion.div>
 
         {/* Main Hero Content */}
-        <div className="text-center">
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
-            <h1 className="text-8xl md:text-9xl font-playfair font-light leading-none mb-6" style={{ color: '#2c2c2c' }}>
-              Hello
-            </h1>
-            <div className="flex items-center justify-center gap-8 mb-8">
-              <div className="h-px flex-1" style={{ backgroundColor: '#d4c5a9' }}></div>
-              <p className="text-xl font-crimson text-center max-w-md" style={{ color: '#8a8a8a' }}>
-                I'm a Full Stack Developer creating beautiful digital experiences
-              </p>
-              <div className="h-px flex-1" style={{ backgroundColor: '#d4c5a9' }}></div>
-            </div>
-          </motion.div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Column - Text Content */}
+          <div className="text-left">
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+              <h1 className="text-7xl md:text-8xl font-playfair font-light leading-none mb-6" style={{ color: '#2c2c2c' }}>
+                Hello
+              </h1>
+              <div className="mb-8">
+                <p className="text-xl font-crimson leading-relaxed" style={{ color: '#8a8a8a' }}>
+                  I'm a Full Stack Developer creating beautiful digital experiences with modern web technologies
+                </p>
+              </div>
+            </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex justify-center gap-6"
-          >
-            <Button 
-              className="px-8 py-3 font-crimson font-semibold tracking-wide rounded-full hover:shadow-lg transition-all duration-300"
-              style={{ 
-                backgroundColor: '#ef5d5e', 
-                color: 'white',
-                border: 'none'
-              }}
+          {/* Right Column - Professional Photo */}
+          <div className="flex justify-center lg:justify-end">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative"
             >
-              View My Work
-            </Button>
-            <Button 
-              variant="outline" 
-              className="px-8 py-3 font-crimson font-semibold tracking-wide rounded-full hover:shadow-lg transition-all duration-300"
-              style={{ 
-                borderColor: '#ef5d5e', 
-                color: '#ef5d5e',
-                backgroundColor: 'transparent'
-              }}
-            >
-              Get In Touch
-            </Button>
-          </motion.div>
+              <div 
+                className="w-80 h-96 rounded-3xl overflow-hidden shadow-2xl relative border-2 border-red-300"
+                style={{ 
+                  background: `linear-gradient(135deg, 
+                    rgba(239, 93, 94, 0.1) 0%, 
+                    rgba(246, 238, 227, 0.3) 50%, 
+                    rgba(212, 197, 169, 0.2) 100%)`,
+                  backgroundColor: '#f0f0f0' // Fallback background
+                }}
+              >
+                {/* Debug text */}
+                <div className="absolute inset-0 flex items-center justify-center bg-blue-100 opacity-50 z-10">
+                  <span className="text-sm text-blue-800">Image Container</span>
+                </div>
+                
+                <img 
+                  src="/profile.png" 
+                  alt="Nishat Ayub - Full Stack Developer"
+                  className="w-full h-full object-cover relative z-20"
+                  style={{ 
+                    filter: 'brightness(1.05) contrast(1.1) saturate(0.95)',
+                  }}
+                  onLoad={() => console.log('Image loaded successfully')}
+                  onError={(e) => console.error('Image failed to load:', e)}
+                />
+                {/* Subtle overlay for better integration */}
+                <div 
+                  className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-transparent"
+                  style={{
+                    background: `linear-gradient(135deg, 
+                      rgba(239, 93, 94, 0.05) 0%, 
+                      transparent 50%, 
+                      rgba(246, 238, 227, 0.1) 100%)`
+                  }}
+                />
+              </div>
+              
+              {/* Decorative elements */}
+              <div 
+                className="absolute -top-2 -left-2 w-6 h-6 rounded-full"
+                style={{ backgroundColor: '#ef5d5e' }}
+              />
+              <div 
+                className="absolute -bottom-2 -right-2 w-4 h-4 rounded-full"
+                style={{ backgroundColor: '#d4c5a9' }}
+              />
+            </motion.div>
+          </div>
         </div>
+
+        {/* Action Buttons */}
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex justify-center gap-6 mt-12"
+        >
+          <Button 
+            className="px-8 py-3 font-crimson font-semibold tracking-wide rounded-full hover:shadow-lg transition-all duration-300"
+            style={{ 
+              backgroundColor: '#ef5d5e', 
+              color: 'white',
+              border: 'none'
+            }}
+          >
+            View My Work
+          </Button>
+          <Button 
+            variant="outline" 
+            className="px-8 py-3 font-crimson font-semibold tracking-wide rounded-full hover:shadow-lg transition-all duration-300"
+            style={{ 
+              borderColor: '#ef5d5e', 
+              color: '#ef5d5e',
+              backgroundColor: 'transparent'
+            }}
+          >
+            Get In Touch
+          </Button>
+        </motion.div>
       </div>
     </div>
   )
