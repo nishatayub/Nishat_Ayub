@@ -137,19 +137,28 @@ export default function Portfolio() {
 function HeroSection() {
   return (
     <div className="h-full flex items-center justify-center px-8 relative" style={{ backgroundColor: '#f6eee3' }}>
+      {/* Contact Me - Top of screen */}
+      <motion.div 
+        className="fixed top-8 right-8 text-sm font-crimson z-40"
+        initial={{ y: -30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <span className="cursor-pointer hover:opacity-70 transition-opacity" style={{ color: '#8a8a8a' }}>
+          CONTACT ME
+        </span>
+      </motion.div>
+
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Header Navigation */}
+        {/* Nishat Ayub - Separate positioning */}
         <motion.div 
-          className="absolute -top-16 left-0 right-0 flex justify-between items-center text-sm font-crimson"
+          className="absolute -top-16 left-0 text-sm font-crimson"
           initial={{ y: -30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="font-semibold tracking-wider" style={{ color: '#ef5d5e' }}>
             NISHAT AYUB
-          </span>
-          <span className="cursor-pointer hover:opacity-70 transition-opacity" style={{ color: '#8a8a8a' }}>
-            CONTACT ME
           </span>
         </motion.div>
 
