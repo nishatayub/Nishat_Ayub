@@ -407,7 +407,7 @@ function ProjectsSection() {
       description: 'Personal development platform for tracking daily affirmations, habits, and goals with progress analytics',
       tech: ['React', 'Node.js', 'MongoDB', 'Express'],
       github: 'https://github.com/kalviumcommunity/S65_Compliment_Generator',
-      live: 'https://s65-compliment-generator.vercel.app'
+      live: 'https://affirmo.vercel.app'
     }
   ]
 
