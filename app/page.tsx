@@ -396,9 +396,9 @@ function ProjectsSection() {
       live: 'https://cuni.vercel.app'
     },
     {
-      title: 'ChattIe',
+      title: 'ChattyBatty',
       description: 'A modern frontend UI for real-time messaging with Socket.io integration, featuring a sleek chat interface and responsive design',
-      tech: ['React', 'Express.js', 'Socket.io', 'MongoDB'],
+      tech: ['React', 'Express.js', 'Socket.io', 'Tailwind'],
       github: 'https://github.com/nishatayub/ChattyBatty',
       live: 'https://chattybatty.vercel.app'
     },
