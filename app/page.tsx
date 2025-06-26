@@ -397,8 +397,8 @@ function ProjectsSection() {
     },
     {
       title: 'ChattyBatty',
-      description: 'A modern frontend UI for real-time messaging with Socket.io integration, featuring a sleek chat interface and responsive design',
-      tech: ['React', 'Express.js', 'Socket.io', 'Tailwind'],
+      description: 'React + Tailwind dreams up chat magic—auto-replies, group chaos, zero servers, just pure frontend wizardry in your browser.',
+      tech: ['React', 'Vite', 'LocalStorage API', 'Tailwind'],
       github: 'https://github.com/nishatayub/ChattyBatty',
       live: 'https://chattybatty.vercel.app'
     },
