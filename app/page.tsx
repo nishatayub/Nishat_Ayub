@@ -169,7 +169,7 @@ export default function Portfolio() {
 
       {/* Scroll Hint */}
       <motion.div
-        className="fixed bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-crimson flex items-center gap-2"
+        className="fixed bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-crimson"
         style={{ color: '#8a8a8a' }}
         initial={{ opacity: 1, y: 20 }}
         animate={{ 
@@ -184,15 +184,6 @@ export default function Portfolio() {
         >
           Scroll to navigate
         </motion.div>
-        <motion.div
-          className="w-1 h-4 rounded-full"
-          style={{ backgroundColor: '#ef5d5e' }}
-          animate={{ 
-            scaleY: [1, 1.5, 1],
-            opacity: [0.5, 1, 0.5]
-          }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        />
       </motion.div>
     </div>
   )
@@ -481,7 +472,7 @@ function SkillsSection() {
   ];
 
   return (
-    <div className="h-screen flex flex-col justify-center px-4 sm:px-8 py-4 sm:py-8 overflow-y-auto" style={{ backgroundColor: '#f6eee3' }}>
+    <div className="h-screen flex flex-col justify-center px-4 sm:px-8 py-8 sm:py-12 overflow-y-auto" style={{ backgroundColor: '#f6eee3' }}>
       <div className="max-w-5xl mx-auto w-full">
         {/* Header Section */}
         <motion.div
@@ -492,10 +483,10 @@ function SkillsSection() {
             ease: [0.25, 0.1, 0.25, 1],
             staggerChildren: 0.2
           }}
-          className="text-center mb-8 sm:mb-10"
+          className="text-center mb-6"
         >
           <motion.h2 
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-playfair font-light mb-2 sm:mb-3" 
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-playfair font-light mb-2" 
             style={{ color: '#2c2c2c' }}
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -505,15 +496,15 @@ function SkillsSection() {
           </motion.h2>
         </motion.div>
 
-        {/* Minimal skill section with progress bars */}
+        {/* Minimal skill section with progress bars - more compact for mobile */}
         <motion.div 
-          className="max-h-[60vh] overflow-y-auto py-2 px-1"
+          className="max-h-[65vh] overflow-y-auto py-3 px-1 pb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
           {/* Skill bars section - minimal and clean - now in rows of three */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-3">
             {skillCategories.flatMap((category) => 
               category.skills.map((skill, skillIndex) => {
                 const delay = skillIndex * 0.12;
@@ -526,18 +517,18 @@ function SkillsSection() {
                     transition={{ duration: 0.5, delay: 0.8 + delay }}
                   >
                     <div 
-                      className="p-3 rounded-md" 
+                      className="p-2 sm:p-3 rounded-md" 
                       style={{ 
                         backgroundColor: 'white', 
                         boxShadow: '0 2px 10px rgba(0, 0, 0, 0.03)', 
                         border: '1px solid rgba(212, 197, 169, 0.3)' 
                       }}
                     >
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-crimson text-sm sm:text-base font-medium text-[#2c2c2c]">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="font-crimson text-xs sm:text-sm font-medium text-[#2c2c2c] truncate mr-1">
                           {skill.name}
                         </span>
-                        <span className="font-crimson text-xs sm:text-sm font-medium" style={{ color: '#ef5d5e' }}>
+                        <span className="font-crimson text-xs font-medium whitespace-nowrap" style={{ color: '#ef5d5e' }}>
                           {skill.percentage}%
                         </span>
                       </div>
