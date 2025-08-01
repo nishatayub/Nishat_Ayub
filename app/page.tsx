@@ -570,7 +570,7 @@ function ProjectsSection() {
       description: 'A web-based collaborative IDE where developers can code together in real-time, share projects, and learn from each other',
       tech: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
       github: 'https://github.com/kalviumcommunity/S65_Nishat_Capstone_CodeUnity',
-      live: 'https://cuni.vercel.app'
+      live: 'https://cunity.vercel.app'
     },
     {
       title: 'ChattyBatty',
