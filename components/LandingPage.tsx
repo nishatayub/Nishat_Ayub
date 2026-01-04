@@ -72,59 +72,100 @@ export default function LandingPage() {
   return (
     <section
       ref={heroRef}
-      className={`relative h-screen w-full overflow-hidden p-3 sm:p-4 lg:p-6 transition-colors duration-500 ${bgClass}`}
+      className={`relative h-screen w-full overflow-hidden p-6 md:p-8 lg:p-12 transition-colors duration-500 ${bgClass}`}
     >
-      <button
-        onClick={() => setIsRedVersion(!isRedVersion)}
-        className={`absolute top-3 sm:top-4 left-1/2 -translate-x-1/2 z-50 text-[10px] sm:text-xs font-bold tracking-wider transition-colors duration-300 ${textPrimary} ${hoverWhite}`}
-      >
-        {isRedVersion ? "RED VERSION" : "BLACK VERSION"}
-      </button>
+      {/* Version Toggle - Top Center */}
+      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-50">
+        <button
+          onClick={() => setIsRedVersion(!isRedVersion)}
+          className={`text-xs font-bold tracking-widest transition-colors duration-300 ${textPrimary} ${hoverWhite}`}
+        >
+          {isRedVersion ? "RED VERSION" : "BLACK VERSION"}
+        </button>
+      </div>
 
-      <div className="relative z-10 h-full pt-12 sm:pt-14 pb-3 grid grid-cols-1 md:grid-cols-12 md:grid-rows-[repeat(10,minmax(0,1fr))] gap-2 sm:gap-3 auto-rows-min md:auto-rows-fr">
-        {/* About Me - Top Left */}
-        <div className={`bento-box md:col-span-4 md:row-span-2 md:row-start-1 border ${borderClass} ${borderHover} p-3 sm:p-4 transition-all duration-500 overflow-hidden`}>
-          <h3 className={`text-[10px] sm:text-xs tracking-wider ${textTertiary} mb-2 font-bold transition-colors duration-500`}>ABOUT ME</h3>
-          <p className={`text-[9px] sm:text-[10px] font-semibold ${textSecondary} leading-tight transition-colors duration-500`}>
+      <div className="relative z-10 h-full grid grid-cols-12 grid-rows-12 gap-0">
+        {/* Top Left - ABOUT ME */}
+        <div className="col-span-3 row-span-2 p-4">
+          <h3 className={`text-sm font-bold tracking-wider ${textPrimary} mb-3 transition-colors duration-500`}>ABOUT ME</h3>
+          <p className={`text-[10px] ${textSecondary} leading-relaxed transition-colors duration-500`}>
             I'm a passionate Full Stack Developer from India with expertise in modern web technologies. I love building robust applications and solving complex technical challenges.
           </p>
-          <p className={`text-[9px] sm:text-[10px] font-semibold ${textSecondary} leading-tight mt-2 transition-colors duration-500`}>
+          <p className={`text-[10px] ${textSecondary} leading-relaxed mt-2 transition-colors duration-500`}>
             With a strong foundation in the MERN stack, I focus on creating scalable solutions with clean code and efficient architecture.
           </p>
         </div>
 
-        {/* Skills - Top Right */}
-        <div className={`bento-box md:col-span-3 md:row-span-2 md:col-start-10 md:row-start-1 border ${borderClass} ${borderHover} p-3 sm:p-4 transition-all duration-500 text-right`}>
-          <h3 className={`text-[10px] sm:text-xs tracking-wider ${textTertiary} mb-2 font-bold transition-colors duration-500`}>SKILLS</h3>
+        {/* Top Right - SKILLS */}
+        <div className="col-span-3 col-start-10 row-span-2 p-4 text-right">
+          <h3 className={`text-sm font-bold tracking-wider ${textPrimary} mb-3 transition-colors duration-500`}>SKILLS</h3>
           <div className="space-y-2">
             <div>
-              <p className={`text-[9px] ${textMuted} mb-1 font-semibold transition-colors duration-500`}>STACK</p>
-              <div className={`flex flex-wrap gap-1 justify-end ${textSecondary} transition-colors duration-500`}>
-                <span className="text-[9px] sm:text-[10px] font-bold">MERN</span>
-                <span className="text-[9px] sm:text-[10px] font-bold">Python</span>
-                <span className="text-[9px] sm:text-[10px] font-bold">Java</span>
-                <span className="text-[9px] sm:text-[10px] font-bold">C++</span>
+              <p className={`text-[10px] ${textMuted} mb-1 transition-colors duration-500`}>STACK</p>
+              <div className={`flex flex-wrap gap-1.5 justify-end ${textSecondary} transition-colors duration-500`}>
+                <span className="text-xs font-bold">MERN</span>
+                <span className="text-xs font-bold">Python</span>
+                <span className="text-xs font-bold">Java</span>
+                <span className="text-xs font-bold">C++</span>
               </div>
             </div>
             <div>
-              <p className={`text-[9px] ${textMuted} mb-1 font-semibold transition-colors duration-500`}>TOOLS</p>
-              <div className={`flex flex-wrap gap-1 justify-end ${textSecondary} transition-colors duration-500`}>
-                <span className="text-[9px] sm:text-[10px] font-bold">Figma</span>
-                <span className="text-[9px] sm:text-[10px] font-bold">Docker</span>
-                <span className="text-[9px] sm:text-[10px] font-bold">REST API</span>
-                <span className="text-[9px] sm:text-[10px] font-bold">CI/CD</span>
+              <p className={`text-[10px] ${textMuted} mb-1 transition-colors duration-500`}>TOOLS</p>
+              <div className={`flex flex-wrap gap-1.5 justify-end ${textSecondary} transition-colors duration-500`}>
+                <span className="text-xs font-bold">Figma</span>
+                <span className="text-xs font-bold">Docker</span>
+                <span className="text-xs font-bold">REST API</span>
+                <span className="text-xs font-bold">CI/CD</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Name - Center */}
-        <div 
-          className="bento-box md:col-span-5 md:row-span-4 md:col-start-4 md:row-start-3 flex flex-col items-center justify-center relative overflow-hidden group/name py-6 sm:py-8 md:py-0 px-3 sm:px-4"
-        >
+        {/* Left Side - WORK */}
+        <div className="col-span-2 row-span-6 row-start-4 p-4">
+          <h3 className={`text-sm font-bold tracking-wider ${textPrimary} mb-4 transition-colors duration-500`}>WORK</h3>
+          <div className="space-y-3">
+            <a 
+              href="https://cunity.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
+            >
+              <p className={`text-xs font-bold mb-1 ${textPrimary} transition-colors`}>
+                Codeunity
+              </p>
+              <p className="text-[10px] leading-tight">Real-time collaborative code editor</p>
+            </a>
+            <a 
+              href="https://affirmo.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
+            >
+              <p className={`text-xs font-bold mb-1 ${textPrimary} transition-colors`}>
+                Affirmo
+              </p>
+              <p className="text-[10px] leading-tight">Feel-good compliments and affirmations</p>
+            </a>
+            <a 
+              href="https://echoes-beta.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
+            >
+              <p className={`text-xs font-bold mb-1 ${textPrimary} transition-colors`}>
+                Echoes
+              </p>
+              <p className="text-[10px] leading-tight">AI-powered closure through personalized letters</p>
+            </a>
+          </div>
+        </div>
+
+        {/* Center - NISHAT AYUB */}
+        <div className="col-span-8 col-start-3 row-span-6 row-start-4 flex flex-col items-center justify-center relative overflow-hidden group/name">
           <h1 
             ref={nameRef}
-            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-3 sm:mb-4 cursor-default relative z-10 transition-all duration-300`}
+            className={`text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-4 cursor-default relative z-10 transition-all duration-300`}
           >
             <span className="relative inline-block">
               <span className={`relative z-10 ${textPrimary} transition-colors duration-300`}>
@@ -146,105 +187,64 @@ export default function LandingPage() {
                 ))}
               </span>
               <span 
-                className={`absolute inset-0 -inset-x-8 -inset-y-4 ${isRedVersion ? "bg-black" : "bg-red-600"} -z-10 scale-x-0 origin-left group-hover/name:scale-x-100 transition-transform duration-700 ease-out rounded-lg`}
+                className={`absolute inset-0 -inset-x-12 -inset-y-6 ${isRedVersion ? "bg-black" : "bg-red-600"} -z-10 scale-x-0 origin-left group-hover/name:scale-x-100 transition-transform duration-700 ease-out rounded-lg`}
               />
             </span>
           </h1>
-          <div className={`h-0.5 w-24 sm:w-32 ${isRedVersion ? "bg-black" : "bg-red-600"} transition-all duration-500`} />
+          <div className={`h-1 w-48 ${isRedVersion ? "bg-black" : "bg-red-600"} transition-all duration-500`} />
         </div>
 
-        {/* Work - Left Side */}
-        <div className={`bento-box md:col-span-4 md:row-span-4 md:row-start-3 md:col-start-1 border ${borderClass} ${borderHover} p-3 sm:p-4 transition-all duration-500 overflow-y-auto`}>
-          <h3 className={`text-[10px] sm:text-xs tracking-wider ${textTertiary} mb-2 font-bold transition-colors duration-500`}>WORK</h3>
-          <div className={`space-y-2 transition-colors duration-500`}>
-            <a 
-              href="https://cunity.vercel.app/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
-            >
-              <p className="text-[11px] sm:text-xs font-bold mb-0.5 flex items-center gap-1">Codeunity <span className="text-[9px]">↗</span></p>
-              <p className={`text-[9px] ${textTertiary}`}>Real-time collaborative code editor</p>
-            </a>
-            <a 
-              href="https://affirmo.vercel.app/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
-            >
-              <p className="text-[11px] sm:text-xs font-bold mb-0.5 flex items-center gap-1">Affirmo <span className="text-[9px]">↗</span></p>
-              <p className={`text-[9px] ${textTertiary}`}>Feel-good compliments and affirmations</p>
-            </a>
-            <a 
-              href="https://echoes-beta.vercel.app/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
-            >
-              <p className="text-[11px] sm:text-xs font-bold mb-0.5 flex items-center gap-1">Echoes <span className="text-[9px]">↗</span></p>
-              <p className={`text-[9px] ${textTertiary}`}>AI-powered closure through personalized letters</p>
-            </a>
-          </div>
-        </div>
-
-
-
-        {/* Age/Time - Right Side Top */}
-        <div className={`bento-box md:col-span-3 md:row-span-2 md:col-start-10 md:row-start-3 border ${borderClass} ${borderHover} flex flex-col justify-between p-2 sm:p-3 transition-all duration-500`}>
-          <span className={`text-[9px] font-semibold ${textMuted} transition-colors duration-500 text-left`}>
+        {/* Right Side - DATE/AGE/TIME */}
+        <div className="col-span-2 col-start-11 row-span-4 row-start-5 flex flex-col items-end justify-center p-4 text-right">
+          <p className={`text-[10px] ${textMuted} mb-2 transition-colors duration-500`}>
             {currentTime.getFullYear()} {currentTime.toLocaleDateString('en-US', { month: 'long' }).toUpperCase()}
-          </span>
-          <div className="flex flex-col items-end text-right gap-0.5">
-            <span className={`text-xl sm:text-2xl font-bold ${textPrimary} transition-colors duration-500`}>
-              {calculateAge().years} Y {calculateAge().months} M
-            </span>
-            <span className={`text-[9px] sm:text-[10px] font-semibold ${textMuted} transition-colors duration-500 font-mono`}>
-              {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}
-            </span>
-          </div>
+          </p>
+          <p className={`text-5xl font-bold ${textPrimary} mb-2 transition-colors duration-500`}>
+            {calculateAge().years} Y {calculateAge().months} M
+          </p>
+          <p className={`text-sm font-mono ${textMuted} transition-colors duration-500`}>
+            {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}
+          </p>
         </div>
 
-        {/* Status - Bottom Left */}
-        <div className={`bento-box md:col-span-2 md:row-span-2 md:col-start-1 md:row-start-7 border ${borderClass} ${borderHover} p-2 sm:p-3 flex flex-col justify-end items-start transition-all duration-500`}>
-          <p className={`text-[9px] sm:text-[10px] font-bold ${textTertiary} transition-colors duration-500`}>STATUS</p>
-          <p className={`text-[10px] sm:text-xs font-bold ${textPrimary} transition-colors duration-500`}>Available for Work</p>
+        {/* Bottom Left - Tagline */}
+        <div className="col-span-4 row-span-2 row-start-11 p-4 flex items-end">
+          <p className={`text-sm font-bold ${textPrimary} tracking-wider transition-colors duration-500 uppercase`}>
+            Strategic thinking meets timeless design
+          </p>
         </div>
 
-        {/* Contact - Right Side Bottom */}
-        <div className={`bento-box md:col-span-3 md:row-span-5 md:col-start-10 md:row-start-5 border ${borderClass} ${borderHover} p-2 sm:p-3 flex flex-col justify-end items-end transition-all duration-500 text-right`}>
-          <h3 className={`text-[10px] sm:text-xs tracking-wider ${textTertiary} font-bold transition-colors duration-500 mb-2`}>GET IN TOUCH</h3>
-          <div className="space-y-1.5">
-            <a
-              href="mailto:nishatayub702@gmail.com"
-              className={`block text-[11px] sm:text-xs font-bold ${textPrimary} ${hoverWhite} transition-colors`}
-            >
-              EMAIL
-            </a>
-            <a
-              href="https://github.com/nishatayub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`block text-[11px] sm:text-xs font-bold ${textPrimary} ${hoverWhite} transition-colors`}
-            >
-              GITHUB
-            </a>
-            <a
-              href="https://linkedin.com/in/nishat-ayub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`block text-[11px] sm:text-xs font-bold ${textPrimary} ${hoverWhite} transition-colors`}
-            >
-              LINKEDIN
-            </a>
-          </div>
+        {/* Bottom Center - STATUS */}
+        <div className="col-span-4 col-start-5 row-span-2 row-start-11 p-4 flex flex-col items-center justify-end">
+          <p className={`text-[10px] ${textMuted} mb-1 transition-colors duration-500`}>STATUS</p>
+          <p className={`text-sm font-bold ${textPrimary} transition-colors duration-500`}>AVAILABLE TO WORK</p>
         </div>
 
-        {/* Fill remaining space */}
-        <div className={`bento-box md:col-span-5 md:row-span-3 md:col-start-4 md:row-start-7 border ${borderClass} ${borderHover} p-2 transition-all duration-500`}>
-        </div>
-        <div className={`bento-box md:col-span-3 md:row-span-3 md:col-start-3 md:row-start-7 border ${borderClass} ${borderHover} p-2 transition-all duration-500`}>
-        </div>
-        <div className={`bento-box md:col-span-4 md:row-span-3 md:col-start-9 md:row-start-7 border ${borderClass} ${borderHover} p-2 transition-all duration-500 hidden`}>
+        {/* Bottom Right - CONTACT */}
+        <div className="col-span-4 col-start-9 row-span-2 row-start-11 p-4 flex flex-col items-end justify-end text-right">
+          <h3 className={`text-sm font-bold tracking-wider ${textPrimary} mb-2 transition-colors duration-500`}>CONTACT</h3>
+          <a 
+            href="https://github.com/nishatayub" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`text-xs ${textSecondary} ${hoverPrimary} transition-colors mb-1`}
+          >
+            GITHUB
+          </a>
+          <a 
+            href="https://linkedin.com/in/nishat-ayub" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`text-xs ${textSecondary} ${hoverPrimary} transition-colors mb-1`}
+          >
+            LINKEDIN
+          </a>
+          <a 
+            href="mailto:nishatayub702@gmail.com"
+            className={`text-xs font-bold ${textPrimary} ${hoverWhite} transition-colors`}
+          >
+            NISHATAYUB702@GMAIL.COM
+          </a>
         </div>
       </div>
     </section>
