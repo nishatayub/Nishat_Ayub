@@ -72,32 +72,32 @@ export default function LandingPage() {
   return (
     <section
       ref={heroRef}
-      className={`relative h-screen w-full overflow-hidden p-8 transition-colors duration-500 ${bgClass}`}
+      className={`relative min-h-screen w-full overflow-x-hidden p-4 md:p-6 lg:p-8 transition-colors duration-500 ${bgClass}`}
     >
       <button
         onClick={() => setIsRedVersion(!isRedVersion)}
-        className={`absolute top-8 left-1/2 -translate-x-1/2 z-50 text-sm font-bold tracking-wider transition-colors duration-300 ${textPrimary} ${hoverWhite}`}
+        className={`absolute top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 text-xs md:text-sm font-bold tracking-wider transition-colors duration-300 ${textPrimary} ${hoverWhite}`}
       >
         {isRedVersion ? "RED VERSION" : "BLACK VERSION"}
       </button>
 
-      <div className="relative z-10 h-full grid grid-cols-12 grid-rows-12 gap-4">
-        <div className={`bento-box col-span-3 row-span-5 border ${borderClass} ${borderHover} p-8 transition-all duration-500`}>
-          <h3 className={`text-xl tracking-wider ${textTertiary} mb-6 font-bold transition-colors duration-500`}>ABOUT ME</h3>
-          <p className={`text-base font-semibold ${textSecondary} leading-relaxed transition-colors duration-500`}>
+      <div className="relative z-10 min-h-screen pt-16 md:pt-20 grid grid-cols-1 md:grid-cols-12 md:grid-rows-12 gap-4 auto-rows-min md:auto-rows-fr">
+        <div className={`bento-box md:col-span-3 md:row-span-5 md:row-start-1 border ${borderClass} ${borderHover} p-6 md:p-8 transition-all duration-500`}>
+          <h3 className={`text-lg md:text-xl tracking-wider ${textTertiary} mb-4 md:mb-6 font-bold transition-colors duration-500`}>ABOUT ME</h3>
+          <p className={`text-sm md:text-base font-semibold ${textSecondary} leading-relaxed transition-colors duration-500`}>
             I'm a passionate Full Stack Developer from India with expertise in modern web technologies. I love building robust applications and solving complex technical challenges.
           </p>
-          <p className={`text-base font-semibold ${textSecondary} leading-relaxed mt-4 transition-colors duration-500`}>
+          <p className={`text-sm md:text-base font-semibold ${textSecondary} leading-relaxed mt-4 transition-colors duration-500`}>
             With a strong foundation in the MERN stack, I focus on creating scalable solutions with clean code and efficient architecture. While UI/UX is part of my skillset, my main expertise lies in technical development roles.
           </p>
         </div>
 
         <div 
-          className="bento-box col-span-6 row-span-5 col-start-4 row-start-4 flex flex-col items-center justify-center relative overflow-hidden group/name"
+          className="bento-box md:col-span-6 md:row-span-5 md:col-start-4 md:row-start-4 flex flex-col items-center justify-center relative overflow-hidden group/name py-12 md:py-0"
         >
           <h1 
             ref={nameRef}
-            className={`text-9xl font-bold tracking-tight mb-6 cursor-default relative z-10 transition-all duration-300`}
+            className={`text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-bold tracking-tight mb-6 cursor-default relative z-10 transition-all duration-300`}
           >
             <span className="relative inline-block">
               <span className={`relative z-10 ${textPrimary} transition-colors duration-300`}>
@@ -123,20 +123,20 @@ export default function LandingPage() {
               />
             </span>
           </h1>
-          <div className={`h-1 w-40 ${isRedVersion ? "bg-black" : "bg-red-600"} transition-all duration-500`} />
+          <div className={`h-1 w-24 md:w-40 ${isRedVersion ? "bg-black" : "bg-red-600"} transition-all duration-500`} />
         </div>
 
-        <div className={`bento-box col-span-3 row-span-5 row-start-6 border ${borderClass} ${borderHover} p-8 transition-all duration-500`}>
-          <h3 className={`text-xl tracking-wider ${textTertiary} mb-6 font-bold transition-colors duration-500`}>WORK</h3>
-          <div className={`space-y-6 transition-colors duration-500`}>
+        <div className={`bento-box md:col-span-3 md:row-span-5 md:row-start-6 md:col-start-1 border ${borderClass} ${borderHover} p-6 md:p-8 transition-all duration-500`}>
+          <h3 className={`text-lg md:text-xl tracking-wider ${textTertiary} mb-4 md:mb-6 font-bold transition-colors duration-500`}>WORK</h3>
+          <div className={`space-y-4 md:space-y-6 transition-colors duration-500`}>
             <a 
               href="https://cunity.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
               className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
             >
-              <p className="text-2xl font-bold mb-1 flex items-center gap-2">Codeunity <span className="text-lg">↗</span></p>
-              <p className={`text-sm ${textTertiary}`}>Real-time collaborative code editor for seamless development</p>
+              <p className="text-xl md:text-2xl font-bold mb-1 flex items-center gap-2">Codeunity <span className="text-base md:text-lg">↗</span></p>
+              <p className={`text-xs md:text-sm ${textTertiary}`}>Real-time collaborative code editor for seamless development</p>
             </a>
             <a 
               href="https://affirmo.vercel.app/" 
@@ -144,8 +144,8 @@ export default function LandingPage() {
               rel="noopener noreferrer"
               className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
             >
-              <p className="text-2xl font-bold mb-1 flex items-center gap-2">Affirmo <span className="text-lg">↗</span></p>
-              <p className={`text-sm ${textTertiary}`}>Feel-good compliments and affirmations to spread positivity</p>
+              <p className="text-xl md:text-2xl font-bold mb-1 flex items-center gap-2">Affirmo <span className="text-base md:text-lg">↗</span></p>
+              <p className={`text-xs md:text-sm ${textTertiary}`}>Feel-good compliments and affirmations to spread positivity</p>
             </a>
             <a 
               href="https://echoes-beta.vercel.app/" 
@@ -153,61 +153,61 @@ export default function LandingPage() {
               rel="noopener noreferrer"
               className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
             >
-              <p className="text-2xl font-bold mb-1 flex items-center gap-2">Echoes <span className="text-lg">↗</span></p>
-              <p className={`text-sm ${textTertiary}`}>AI-powered closure through unspoken words and personalized letters</p>
+              <p className="text-xl md:text-2xl font-bold mb-1 flex items-center gap-2">Echoes <span className="text-base md:text-lg">↗</span></p>
+              <p className={`text-xs md:text-sm ${textTertiary}`}>AI-powered closure through unspoken words and personalized letters</p>
             </a>
           </div>
         </div>
 
-        <div className={`bento-box col-span-3 row-span-3 col-start-10 border ${borderClass} ${borderHover} p-8 transition-all duration-500 text-right`}>
-          <h3 className={`text-base tracking-wider ${textTertiary} mb-4 font-bold transition-colors duration-500`}>SKILLS</h3>
-          <div className="space-y-4">
+        <div className={`bento-box md:col-span-3 md:row-span-3 md:col-start-10 md:row-start-1 border ${borderClass} ${borderHover} p-6 md:p-8 transition-all duration-500 text-right`}>
+          <h3 className={`text-sm md:text-base tracking-wider ${textTertiary} mb-3 md:mb-4 font-bold transition-colors duration-500`}>SKILLS</h3>
+          <div className="space-y-3 md:space-y-4">
             <div>
-              <p className={`text-sm ${textMuted} mb-2 font-semibold transition-colors duration-500`}>STACK</p>
+              <p className={`text-xs md:text-sm ${textMuted} mb-2 font-semibold transition-colors duration-500`}>STACK</p>
               <div className={`flex flex-wrap gap-2 justify-end ${textSecondary} transition-colors duration-500`}>
-                <span className="text-base font-bold">MERN</span>
-                <span className="text-base font-bold">Python</span>
-                <span className="text-base font-bold">Java</span>
-                <span className="text-base font-bold">C++</span>
+                <span className="text-sm md:text-base font-bold">MERN</span>
+                <span className="text-sm md:text-base font-bold">Python</span>
+                <span className="text-sm md:text-base font-bold">Java</span>
+                <span className="text-sm md:text-base font-bold">C++</span>
               </div>
             </div>
             <div>
-              <p className={`text-sm ${textMuted} mb-2 font-semibold transition-colors duration-500`}>TOOLS</p>
+              <p className={`text-xs md:text-sm ${textMuted} mb-2 font-semibold transition-colors duration-500`}>TOOLS</p>
               <div className={`flex flex-wrap gap-2 justify-end ${textSecondary} transition-colors duration-500`}>
-                <span className="text-base font-bold">Figma</span>
-                <span className="text-base font-bold">Docker</span>
-                <span className="text-base font-bold">REST API</span>
-                <span className="text-base font-bold">CI/CD</span>
+                <span className="text-sm md:text-base font-bold">Figma</span>
+                <span className="text-sm md:text-base font-bold">Docker</span>
+                <span className="text-sm md:text-base font-bold">REST API</span>
+                <span className="text-sm md:text-base font-bold">CI/CD</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className={`bento-box col-span-3 row-span-2 col-start-10 row-start-4 border ${borderClass} ${borderHover} flex flex-col justify-between p-4 transition-all duration-500`}>
-          <span className={`text-sm font-semibold ${textMuted} transition-colors duration-500 text-left`}>
+        <div className={`bento-box md:col-span-3 md:row-span-2 md:col-start-10 md:row-start-4 border ${borderClass} ${borderHover} flex flex-col justify-between p-4 md:p-4 transition-all duration-500`}>
+          <span className={`text-xs md:text-sm font-semibold ${textMuted} transition-colors duration-500 text-left`}>
             {currentTime.getFullYear()} {currentTime.toLocaleDateString('en-US', { month: 'long' }).toUpperCase()}
           </span>
-          <div className="flex flex-col items-end text-right gap-2">
-            <span className={`text-5xl font-bold ${textPrimary} transition-colors duration-500`}>
+          <div className="flex flex-col items-end text-right gap-1 md:gap-2">
+            <span className={`text-3xl md:text-4xl lg:text-5xl font-bold ${textPrimary} transition-colors duration-500`}>
               {calculateAge().years} Y {calculateAge().months} M
             </span>
-            <span className={`text-base font-semibold ${textMuted} transition-colors duration-500 font-mono`}>
+            <span className={`text-sm md:text-base font-semibold ${textMuted} transition-colors duration-500 font-mono`}>
               {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}
             </span>
           </div>
         </div>
 
-        <div className={`bento-box col-span-2 row-span-2 col-start-8 row-start-11 border ${borderClass} ${borderHover} p-6 flex flex-col justify-end items-end transition-all duration-500 text-right`}>
-          <p className={`text-base font-bold ${textTertiary} transition-colors duration-500`}>STATUS</p>
-          <p className={`text-xl font-bold ${textPrimary} transition-colors duration-500`}>Available for Work</p>
+        <div className={`bento-box md:col-span-2 md:row-span-2 md:col-start-8 md:row-start-11 border ${borderClass} ${borderHover} p-4 md:p-6 flex flex-col justify-end items-end transition-all duration-500 text-right`}>
+          <p className={`text-sm md:text-base font-bold ${textTertiary} transition-colors duration-500`}>STATUS</p>
+          <p className={`text-lg md:text-xl font-bold ${textPrimary} transition-colors duration-500`}>Available for Work</p>
         </div>
 
-        <div className={`bento-box col-span-3 row-span-3 col-start-10 row-start-10 border ${borderClass} ${borderHover} p-6 flex flex-col justify-end items-end transition-all duration-500 text-right`}>
-          <h3 className={`text-base tracking-wider ${textTertiary} font-bold transition-colors duration-500 mb-4`}>GET IN TOUCH</h3>
-          <div className="space-y-3">
+        <div className={`bento-box md:col-span-3 md:row-span-3 md:col-start-10 md:row-start-10 border ${borderClass} ${borderHover} p-4 md:p-6 flex flex-col justify-end items-end transition-all duration-500 text-right`}>
+          <h3 className={`text-sm md:text-base tracking-wider ${textTertiary} font-bold transition-colors duration-500 mb-3 md:mb-4`}>GET IN TOUCH</h3>
+          <div className="space-y-2 md:space-y-3">
             <a
               href="mailto:nishatayub702@gmail.com"
-              className={`block text-2xl font-bold ${textPrimary} ${hoverWhite} transition-colors`}
+              className={`block text-lg md:text-2xl font-bold ${textPrimary} ${hoverWhite} transition-colors`}
             >
               EMAIL
             </a>
@@ -215,7 +215,7 @@ export default function LandingPage() {
               href="https://github.com/nishatayub"
               target="_blank"
               rel="noopener noreferrer"
-              className={`block text-2xl font-bold ${textPrimary} ${hoverWhite} transition-colors`}
+              className={`block text-lg md:text-2xl font-bold ${textPrimary} ${hoverWhite} transition-colors`}
             >
               GITHUB
             </a>
@@ -223,7 +223,7 @@ export default function LandingPage() {
               href="https://linkedin.com/in/nishat-ayub"
               target="_blank"
               rel="noopener noreferrer"
-              className={`block text-2xl font-bold ${textPrimary} ${hoverWhite} transition-colors`}
+              className={`block text-lg md:text-2xl font-bold ${textPrimary} ${hoverWhite} transition-colors`}
             >
               LINKEDIN
             </a>
