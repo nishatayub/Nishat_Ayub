@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import Link from "next/link";
 
 export default function LandingPage() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -72,107 +73,105 @@ export default function LandingPage() {
   return (
     <section
       ref={heroRef}
-      className={`relative h-screen w-full overflow-hidden p-6 md:p-8 lg:p-12 transition-colors duration-500 ${bgClass}`}
+      className={`relative h-screen w-full overflow-hidden p-4 sm:p-6 md:p-8 lg:p-12 transition-colors duration-500 ${bgClass}`}
     >
       {/* Version Toggle - Top Center */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-50">
+      <div className="fixed top-4 sm:top-8 left-1/2 -translate-x-1/2 z-50">
         <button
           onClick={() => setIsRedVersion(!isRedVersion)}
-          className={`text-xs font-bold tracking-widest transition-colors duration-300 ${textPrimary} ${hoverWhite}`}
+          className={`text-xs sm:text-sm font-bold tracking-widest transition-colors duration-300 ${textPrimary} ${hoverWhite}`}
         >
           {isRedVersion ? "RED VERSION" : "BLACK VERSION"}
         </button>
       </div>
 
-      <div className="relative z-10 h-full grid grid-cols-12 grid-rows-12 gap-0">
+      <div className="relative z-10 h-full grid grid-cols-12 grid-rows-12 gap-2 sm:gap-0">
         {/* Top Left - ABOUT ME */}
-        <div className="col-span-3 row-span-2 p-4">
-          <h3 className={`text-sm font-bold tracking-wider ${textPrimary} mb-3 transition-colors duration-500`}>ABOUT ME</h3>
-          <p className={`text-[10px] ${textSecondary} leading-relaxed transition-colors duration-500`}>
+        <div className="col-span-12 sm:col-span-6 md:col-span-3 row-span-2 p-3 sm:p-4">
+          <h3 className={`text-base md:text-lg font-bold tracking-wider ${textPrimary} mb-3 transition-colors duration-500`}>ABOUT ME</h3>
+          <p className={`text-xs md:text-sm ${textSecondary} leading-relaxed transition-colors duration-500`}>
             I'm a passionate Full Stack Developer from India with expertise in modern web technologies. I love building robust applications and solving complex technical challenges.
           </p>
-          <p className={`text-[10px] ${textSecondary} leading-relaxed mt-2 transition-colors duration-500`}>
-            With a strong foundation in the MERN stack, I focus on creating scalable solutions with clean code and efficient architecture.
-          </p>
+          
         </div>
 
         {/* Top Right - SKILLS */}
-        <div className="col-span-3 col-start-10 row-span-2 p-4 text-right">
-          <h3 className={`text-sm font-bold tracking-wider ${textPrimary} mb-3 transition-colors duration-500`}>SKILLS</h3>
-          <div className="space-y-2">
+        <div className="col-span-12 sm:col-span-6 md:col-span-3 md:col-start-10 row-span-2 p-3 sm:p-4 text-left sm:text-right">
+          <h3 className={`text-base md:text-lg font-bold tracking-wider ${textPrimary} mb-3 transition-colors duration-500`}>SKILLS</h3>
+          <div className="space-y-3">
             <div>
-              <p className={`text-[10px] ${textMuted} mb-1 transition-colors duration-500`}>STACK</p>
-              <div className={`flex flex-wrap gap-1.5 justify-end ${textSecondary} transition-colors duration-500`}>
-                <span className="text-xs font-bold">MERN</span>
-                <span className="text-xs font-bold">Python</span>
-                <span className="text-xs font-bold">Java</span>
-                <span className="text-xs font-bold">C++</span>
+              <p className={`text-xs ${textMuted} mb-2 transition-colors duration-500`}>STACK</p>
+              <div className={`flex flex-wrap gap-2 justify-start sm:justify-end ${textSecondary} transition-colors duration-500`}>
+                <span className="text-sm font-bold">MERN</span>
+                <span className="text-sm font-bold">Python</span>
+                <span className="text-sm font-bold">Java</span>
+                <span className="text-sm font-bold">C++</span>
               </div>
             </div>
             <div>
-              <p className={`text-[10px] ${textMuted} mb-1 transition-colors duration-500`}>TOOLS</p>
-              <div className={`flex flex-wrap gap-1.5 justify-end ${textSecondary} transition-colors duration-500`}>
-                <span className="text-xs font-bold">Figma</span>
-                <span className="text-xs font-bold">Docker</span>
-                <span className="text-xs font-bold">REST API</span>
-                <span className="text-xs font-bold">CI/CD</span>
+              <p className={`text-xs ${textMuted} mb-2 transition-colors duration-500`}>TOOLS</p>
+              <div className={`flex flex-wrap gap-2 justify-start sm:justify-end ${textSecondary} transition-colors duration-500`}>
+                <span className="text-sm font-bold">Figma</span>
+                <span className="text-sm font-bold">Docker</span>
+                <span className="text-sm font-bold">REST API</span>
+                <span className="text-sm font-bold">CI/CD</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Left Side - WORK */}
-        <div className="col-span-2 row-span-6 row-start-4 p-4">
-          <h3 className={`text-sm font-bold tracking-wider ${textPrimary} mb-4 transition-colors duration-500`}>WORK</h3>
-          <div className="space-y-3">
+        <div className="col-span-12 sm:col-span-6 md:col-span-2 row-span-4 md:row-span-6 row-start-3 md:row-start-4 p-3 sm:p-4">
+          <h3 className={`text-base md:text-lg font-bold tracking-wider ${textPrimary} mb-4 transition-colors duration-500`}>WORK</h3>
+          <div className="space-y-3 sm:space-y-4">
             <a 
               href="https://cunity.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
+              className={`block ${textSecondary} ${hoverPrimary} transition-all duration-300 group hover:scale-105`}
             >
-              <p className={`text-xs font-bold mb-1 ${textPrimary} transition-colors`}>
+              <p className={`text-sm md:text-base font-bold mb-1 ${textPrimary} transition-colors`}>
                 Codeunity
               </p>
-              <p className="text-[10px] leading-tight">Real-time collaborative code editor</p>
+              <p className="text-xs leading-tight">Real-time collaborative code editor</p>
             </a>
             <a 
               href="https://affirmo.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
+              className={`block ${textSecondary} ${hoverPrimary} transition-all duration-300 group hover:scale-105`}
             >
-              <p className={`text-xs font-bold mb-1 ${textPrimary} transition-colors`}>
+              <p className={`text-sm md:text-base font-bold mb-1 ${textPrimary} transition-colors`}>
                 Affirmo
               </p>
-              <p className="text-[10px] leading-tight">Feel-good compliments and affirmations</p>
+              <p className="text-xs leading-tight">Feel-good compliments and affirmations</p>
             </a>
             <a 
               href="https://echoes-beta.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`block ${textSecondary} ${hoverPrimary} transition-colors group`}
+              className={`block ${textSecondary} ${hoverPrimary} transition-all duration-300 group hover:scale-105`}
             >
-              <p className={`text-xs font-bold mb-1 ${textPrimary} transition-colors`}>
+              <p className={`text-sm md:text-base font-bold mb-1 ${textPrimary} transition-colors`}>
                 Echoes
               </p>
-              <p className="text-[10px] leading-tight">AI-powered closure through personalized letters</p>
+              <p className="text-xs leading-tight">AI-powered closure through personalized letters</p>
             </a>
           </div>
         </div>
 
         {/* Center - NISHAT AYUB */}
-        <div className="col-span-8 col-start-3 row-span-6 row-start-4 flex flex-col items-center justify-center relative overflow-hidden group/name">
+        <div className="col-span-12 md:col-span-8 md:col-start-3 row-span-4 md:row-span-6 row-start-7 md:row-start-4 flex flex-col items-center justify-center relative overflow-hidden group/name">
           <h1 
             ref={nameRef}
-            className={`text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-4 cursor-default relative z-10 transition-all duration-300`}
+            className={`text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-bold tracking-tight mb-4 cursor-default relative z-10 transition-all duration-300`}
           >
             <span className="relative inline-block">
               <span className={`relative z-10 ${textPrimary} transition-colors duration-300`}>
                 {"NISHAT AYUB".split("").map((char, i) => (
                   <span
                     key={i}
-                    ref={(el) => lettersRef.current[i] = el}
+                    ref={(el) => { lettersRef.current[i] = el; }}
                     className="inline-block relative"
                     style={{ display: char === " " ? "inline" : "inline-block", width: char === " " ? "0.3em" : "auto" }}
                   >
@@ -191,43 +190,58 @@ export default function LandingPage() {
               />
             </span>
           </h1>
-          <div className={`h-1 w-48 ${isRedVersion ? "bg-black" : "bg-red-600"} transition-all duration-500`} />
+          <div className={`h-1 w-32 sm:w-48 ${isRedVersion ? "bg-black" : "bg-red-600"} transition-all duration-500`} />
         </div>
 
         {/* Right Side - DATE/AGE/TIME */}
-        <div className="col-span-2 col-start-11 row-span-4 row-start-5 flex flex-col items-end justify-center p-4 text-right">
-          <p className={`text-[10px] ${textMuted} mb-2 transition-colors duration-500`}>
+        <div className="col-span-12 sm:col-span-6 md:col-span-2 md:col-start-11 row-span-2 md:row-span-4 row-start-11 md:row-start-5 flex flex-col items-start sm:items-end justify-center p-3 sm:p-4 text-left sm:text-right">
+          <p className={`text-xs md:text-sm ${textMuted} mb-2 transition-colors duration-500`}>
             {currentTime.getFullYear()} {currentTime.toLocaleDateString('en-US', { month: 'long' }).toUpperCase()}
           </p>
-          <p className={`text-5xl font-bold ${textPrimary} mb-2 transition-colors duration-500`}>
+          <p className={`text-4xl sm:text-5xl md:text-6xl font-bold ${textPrimary} mb-2 transition-colors duration-500`}>
             {calculateAge().years} Y {calculateAge().months} M
           </p>
-          <p className={`text-sm font-mono ${textMuted} transition-colors duration-500`}>
+          <p className={`text-base md:text-lg font-mono ${textMuted} transition-colors duration-500`}>
             {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}
           </p>
         </div>
 
         {/* Bottom Left - Tagline */}
-        <div className="col-span-4 row-span-2 row-start-11 p-4 flex items-end">
-          <p className={`text-sm font-bold ${textPrimary} tracking-wider transition-colors duration-500 uppercase`}>
+        <div className="hidden md:flex col-span-4 row-span-2 row-start-11 p-4 items-end">
+          <p className={`text-sm md:text-base font-bold ${textPrimary} tracking-wider transition-colors duration-500 uppercase`}>
             Strategic thinking meets timeless design
           </p>
         </div>
 
-        {/* Bottom Center - STATUS */}
-        <div className="col-span-4 col-start-5 row-span-2 row-start-11 p-4 flex flex-col items-center justify-end">
-          <p className={`text-[10px] ${textMuted} mb-1 transition-colors duration-500`}>STATUS</p>
-          <p className={`text-sm font-bold ${textPrimary} transition-colors duration-500`}>AVAILABLE TO WORK</p>
+        {/* Bottom Center - CTA */}
+        <div className="col-span-12 md:col-span-4 md:col-start-5 row-span-2 md:row-start-11 p-3 sm:p-4 flex flex-col items-center justify-end gap-3">
+          <p className={`text-xs ${textMuted} transition-colors duration-500`}>AVAILABLE FOR NEW PROJECTS</p>
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            <Link 
+              href="/projects"
+              className={`px-6 py-2.5 ${isRedVersion ? 'bg-black text-red-600 hover:bg-black/80' : 'bg-red-600 text-black hover:bg-red-700'} font-bold text-sm tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg text-center`}
+            >
+              VIEW PROJECTS
+            </Link>
+            <a 
+              href="https://www.linkedin.com/in/nishat-ayub/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-6 py-2.5 border-2 ${isRedVersion ? 'border-black text-black hover:bg-black hover:text-red-600' : 'border-red-600 text-red-600 hover:bg-red-600 hover:text-black'} font-bold text-sm tracking-wide transition-all duration-300 hover:scale-105 text-center`}
+            >
+              HIRE ME
+            </a>
+          </div>
         </div>
 
         {/* Bottom Right - CONTACT */}
-        <div className="col-span-4 col-start-9 row-span-2 row-start-11 p-4 flex flex-col items-end justify-end text-right">
-          <h3 className={`text-sm font-bold tracking-wider ${textPrimary} mb-2 transition-colors duration-500`}>CONTACT</h3>
+        <div className="hidden md:flex col-span-4 col-start-9 row-span-2 row-start-11 p-4 flex-col items-end justify-end text-right">
+          <h3 className={`text-base md:text-lg font-bold tracking-wider ${textPrimary} mb-2 transition-colors duration-500`}>CONTACT</h3>
           <a 
             href="https://github.com/nishatayub" 
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-xs ${textSecondary} ${hoverPrimary} transition-colors mb-1`}
+            className={`text-sm ${textSecondary} ${hoverPrimary} transition-colors mb-1`}
           >
             GITHUB
           </a>
@@ -235,13 +249,13 @@ export default function LandingPage() {
             href="https://linkedin.com/in/nishat-ayub" 
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-xs ${textSecondary} ${hoverPrimary} transition-colors mb-1`}
+            className={`text-sm ${textSecondary} ${hoverPrimary} transition-colors mb-1`}
           >
             LINKEDIN
           </a>
           <a 
             href="mailto:nishatayub702@gmail.com"
-            className={`text-xs font-bold ${textPrimary} ${hoverWhite} transition-colors`}
+            className={`text-sm font-bold ${textPrimary} ${hoverWhite} transition-colors`}
           >
             NISHATAYUB702@GMAIL.COM
           </a>
