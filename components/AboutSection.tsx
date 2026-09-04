@@ -1,70 +1,60 @@
 "use client";
 
+const stack = ["Next.js", "React", "TypeScript", "Node.js", "Python", "C#", "PostgreSQL", "MongoDB", "Docker"];
+
+const alsoKnownFor = [
+  "Research: GROMACS molecular dynamics simulations & protein docking pipelines",
+  "Leadership: led a 4-person team to the PromptRepo national finals",
+  "Debate: 2nd runner-up, PersonX Debate Competition",
+  "Open source: merged a doc contribution into freeCodeCamp's curriculum",
+];
+
 export default function AboutSection() {
   return (
-    <section
-      id="about"
-      className="content-section min-h-screen bg-black py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8"
-    >
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16 md:gap-20">
-          {/* Left Column */}
+    <div className="mx-auto flex min-h-full max-w-[1200px] flex-col justify-center px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+        <div>
+          <h2 className="mb-6 font-pixel text-3xl leading-tight text-ink sm:text-4xl">
+            BUILDS PRODUCTS.
+            <br />
+            RUNS SIMULATIONS.
+            <br />
+            WINS ARGUMENTS.
+          </h2>
+          <p className="mb-4 max-w-md font-mono text-base leading-relaxed text-ink">
+            I'm a full-stack developer and CS undergrad (Kalvium Software Product
+            Engineering program, Lovely Professional University), currently splitting
+            time between shipping product at Moonpreneur and running molecular dynamics
+            simulations as a research intern at IIT Delhi's Kusuma School of Biological
+            Sciences — because picking one discipline felt too easy.
+          </p>
+        </div>
+
+        <div className="space-y-10">
           <div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-light text-white mb-8 sm:mb-10 md:mb-12 tracking-tight">
-              About
-            </h2>
-            <div className="h-px w-16 sm:w-20 md:w-24 bg-red-600 mb-8 sm:mb-10 md:mb-12" />
-            <p className="text-base sm:text-lg md:text-xl text-gray-400 font-light leading-relaxed">
-              We build brand identities that merge strategic thinking with
-              timeless aesthetics master. Through research-driven concepts and
-              bold visual statements.
-            </p>
+            <h3 className="mb-4 font-mono text-lg text-ink">Stack</h3>
+            <div className="flex flex-wrap gap-2">
+              {stack.map((item) => (
+                <span key={item} className="border-[1.5px] border-ink px-3 py-1 font-mono text-sm text-ink">
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
-          {/* Right Column - Services */}
-          <div className="space-y-12 sm:space-y-14 md:space-y-16">
-            <div>
-              <h3 className="text-xl sm:text-2xl text-white font-light mb-6 sm:mb-8 tracking-wide">
-                Services
-              </h3>
-              <ul className="space-y-3 sm:space-y-4 text-gray-500 text-sm sm:text-base">
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  Brand Strategy
+          <div>
+            <h3 className="mb-4 font-mono text-lg text-ink">Also known for</h3>
+            <ul className="space-y-2">
+              {alsoKnownFor.map((item) => (
+                <li key={item} className="flex items-start gap-2 font-mono text-sm leading-relaxed text-ink">
+                  <span className="shrink-0">—</span>
+                  {item}
                 </li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  Visual Identity
-                </li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  Digital Experience
-                </li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  Motion Design
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-xl sm:text-2xl text-white font-light mb-6 sm:mb-8 tracking-wide">
-                Capabilities
-              </h3>
-              <ul className="space-y-3 sm:space-y-4 text-gray-500 text-sm sm:text-base">
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  Strategic Thinking
-                </li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  Creative Direction
-                </li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  Brand Development
-                </li>
-                <li className="hover:text-white transition-colors duration-300 cursor-pointer">
-                  Digital Innovation
-                </li>
-              </ul>
-            </div>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

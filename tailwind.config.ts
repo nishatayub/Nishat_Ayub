@@ -10,7 +10,14 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			pixel: ['var(--font-pixel)'],
+  			mono: ['var(--font-mono)', 'monospace'],
+  		},
   		colors: {
+  			paper: '#f0ece7',
+  			ink: '#141414',
+  			'ink-muted': '#726e67',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

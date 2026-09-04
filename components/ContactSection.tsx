@@ -1,62 +1,45 @@
 "use client";
 
+import { Mail, Github, Linkedin, Instagram } from "lucide-react";
+import { GMAIL_COMPOSE_LINK, GITHUB_LINK, LINKEDIN_LINK, INSTAGRAM_LINK } from "@/lib/links";
+
+const socials = [
+  { label: "Email", href: GMAIL_COMPOSE_LINK, Icon: Mail },
+  { label: "GitHub", href: GITHUB_LINK, Icon: Github },
+  { label: "LinkedIn", href: LINKEDIN_LINK, Icon: Linkedin },
+  { label: "Instagram", href: INSTAGRAM_LINK, Icon: Instagram },
+];
+
 export default function ContactSection() {
   return (
-    <section
-      id="contact"
-      className="content-section min-h-screen bg-black py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 flex items-center"
-    >
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="text-center">
-          <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-light text-white mb-8 sm:mb-10 md:mb-12 tracking-tight">
-            Let's Talk
-          </h2>
-          
-          <div className="h-px w-24 sm:w-28 md:w-32 bg-red-600 mx-auto mb-12 sm:mb-14 md:mb-16" />
-          
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-400 font-light mb-16 sm:mb-18 md:mb-20 max-w-2xl mx-auto px-4">
-            Have a project in mind? We'd love to hear about it.
-          </p>
+    <div className="mx-auto flex min-h-full max-w-[1200px] flex-col justify-center px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+      <div className="border-[1.5px] border-ink px-6 py-14 text-center sm:px-12 sm:py-16">
+        <h2 className="mb-4 font-pixel text-3xl leading-tight text-ink sm:text-5xl">
+          LET'S BUILD SOMETHING
+        </h2>
+        <p className="mb-10 font-mono text-base text-ink">
+          Available for new projects — say hi anytime.
+        </p>
 
-          <div className="space-y-6 sm:space-y-8">
+        <div className="flex flex-wrap justify-center gap-4">
+          {socials.map(({ label, href, Icon }) => (
             <a
-              href="mailto:hello@nishatayub.com"
-              className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white hover:text-red-600 transition-colors duration-300 break-all"
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="flex h-14 w-14 items-center justify-center border-[1.5px] border-ink text-ink transition-colors hover:bg-ink hover:text-paper"
             >
-              hello@nishatayub.com
+              <Icon className="h-6 w-6" strokeWidth={1.5} />
             </a>
-            
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 text-gray-500 text-xs sm:text-sm tracking-wider uppercase">
-              <a
-                href="#"
-                className="hover:text-white transition-colors duration-300"
-              >
-                Instagram
-              </a>
-              <a
-                href="#"
-                className="hover:text-white transition-colors duration-300"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="#"
-                className="hover:text-white transition-colors duration-300"
-              >
-                Behance
-              </a>
-            </div>
-          </div>
+          ))}
         </div>
 
-        {/* Footer */}
-        <div className="mt-24 sm:mt-28 md:mt-32 pt-8 sm:pt-10 md:pt-12 border-t border-zinc-900">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 text-gray-600 text-xs sm:text-sm text-center sm:text-left">
-            <p>© 2026 Nishat Ayub. All rights reserved.</p>
-            <p>Designed & Developed with precision</p>
-          </div>
-        </div>
+        <p className="mt-14 font-mono text-xs text-ink-muted">
+          © {new Date().getFullYear()} Nishat Ayub. All rights reserved.
+        </p>
       </div>
-    </section>
+    </div>
   );
 }
