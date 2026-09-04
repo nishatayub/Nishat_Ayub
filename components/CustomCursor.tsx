@@ -3,6 +3,49 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
+const CELL = 4;
+
+// body pixels shared by both expressions (7x7 grid)
+const BODY: [number, number][] = [
+  [2, 0], [3, 0], [4, 0],
+  [1, 1], [2, 1], [3, 1], [4, 1], [5, 1],
+  [0, 2], [1, 2], [2, 2], [3, 2], [4, 2], [5, 2], [6, 2],
+  [0, 3], [1, 3], [2, 3], [3, 3], [4, 3], [5, 3], [6, 3],
+  [0, 4], [1, 4], [2, 4], [3, 4], [4, 4], [5, 4], [6, 4],
+  [1, 5], [2, 5], [3, 5], [4, 5], [5, 5],
+  [2, 6], [3, 6], [4, 6],
+];
+
+function px(col: number, row: number) {
+  return { x: col * CELL, y: row * CELL };
+}
+
+function PixelBlob({ excited }: { excited: boolean }) {
+  const eyeCutouts: [number, number][] = excited
+    ? [[1, 1], [1, 2], [5, 1], [5, 2]] // wide-eyed both sides
+    : [[1, 2], [5, 1], [5, 2]]; // goofy: one small eye, one big eye
+  const mouth: [number, number][] = excited
+    ? [[2, 4], [3, 4], [4, 4]]
+    : [[2, 4], [3, 4]];
+
+  return (
+    <svg viewBox="0 0 28 28" width="28" height="28" shapeRendering="crispEdges">
+      {BODY.map(([c, r]) => {
+        const { x, y } = px(c, r);
+        return <rect key={`b-${c}-${r}`} x={x} y={y} width={CELL} height={CELL} fill="#141414" />;
+      })}
+      {eyeCutouts.map(([c, r]) => {
+        const { x, y } = px(c, r);
+        return <rect key={`e-${c}-${r}`} x={x} y={y} width={CELL} height={CELL} fill="#f0ece7" />;
+      })}
+      {mouth.map(([c, r]) => {
+        const { x, y } = px(c, r);
+        return <rect key={`m-${c}-${r}`} x={x} y={y} width={CELL} height={CELL} fill="#f0ece7" />;
+      })}
+    </svg>
+  );
+}
+
 export default function CustomCursor() {
   const [enabled, setEnabled] = useState(false);
   const [hovering, setHovering] = useState(false);
@@ -10,8 +53,8 @@ export default function CustomCursor() {
 
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
-  const ringX = useSpring(x, { damping: 30, stiffness: 400, mass: 0.5 });
-  const ringY = useSpring(y, { damping: 30, stiffness: 400, mass: 0.5 });
+  const cx = useSpring(x, { damping: 22, stiffness: 380, mass: 0.4 });
+  const cy = useSpring(y, { damping: 22, stiffness: 380, mass: 0.4 });
 
   useEffect(() => {
     const isFine = window.matchMedia("(pointer: fine)").matches;
@@ -47,31 +90,31 @@ export default function CustomCursor() {
   if (!enabled) return null;
 
   return (
-    <>
-      {/* precise inner dot, no lag */}
+    <motion.div
+      className="pointer-events-none fixed left-0 top-0 z-[999]"
+      style={{ x: cx, y: cy, translateX: "-50%", translateY: "-50%" }}
+      animate={{
+        scale: clicking ? 0.7 : hovering ? 1.35 : 1,
+        rotate: hovering ? [0, -8, 8, 0] : 0,
+      }}
+      transition={{
+        scale: { duration: 0.18, ease: "easeOut" },
+        rotate: { duration: 0.6, repeat: hovering ? Infinity : 0, ease: "easeInOut" },
+      }}
+    >
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[999] rounded-full"
-        style={{ x, y, translateX: "-50%", translateY: "-50%" }}
-        animate={{
-          width: hovering ? 0 : 5,
-          height: hovering ? 0 : 5,
-          backgroundColor: "#141414",
-        }}
-        transition={{ duration: 0.15 }}
-      />
-
-      {/* trailing ring, inverts to filled on hover */}
-      <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[999] rounded-full border-[1.5px] border-ink"
-        style={{ x: ringX, y: ringY, translateX: "-50%", translateY: "-50%" }}
-        animate={{
-          width: hovering ? 44 : 24,
-          height: hovering ? 44 : 24,
-          backgroundColor: hovering ? "#141414" : "rgba(20,20,20,0)",
-          scale: clicking ? 0.85 : 1,
-        }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-      />
-    </>
+        animate={{ y: [0, -3, 0] }}
+        transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="relative">
+          <div style={{ opacity: hovering ? 0 : 1 }}>
+            <PixelBlob excited={false} />
+          </div>
+          <div className="absolute inset-0" style={{ opacity: hovering ? 1 : 0 }}>
+            <PixelBlob excited={true} />
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }
