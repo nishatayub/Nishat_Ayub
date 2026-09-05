@@ -19,15 +19,6 @@ export default function LandingPage({ onNavigate }: { onNavigate: (view: View) =
         <ProcessStepper onNavigate={onNavigate} />
         <FeaturedProjectCard />
       </div>
-
-      <div className="mt-6">
-        <a
-          href="/projects"
-          className="inline-flex items-center gap-2 font-mono text-sm text-ink-muted transition-colors hover:text-ink"
-        >
-          <span aria-hidden>↻</span> See more projects
-        </a>
-      </div>
     </div>
   );
 }
