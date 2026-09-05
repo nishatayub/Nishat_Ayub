@@ -26,11 +26,6 @@ body {
   }
 }
 
-html.custom-cursor,
-html.custom-cursor * {
-  cursor: none !important;
-}
-
 @layer base {
   :root {
     --color-paper: #f0ece7;
