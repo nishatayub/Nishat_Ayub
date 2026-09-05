@@ -4,12 +4,12 @@ import { useState } from "react";
 
 const projects = [
   {
-    title: "LearnSphere",
-    link: "https://learnsphere-gu3p.onrender.com/",
-    tags: ["ASP.NET Core MVC", "C#"],
+    title: "Loupe",
+    link: "https://loupe-theta-orpin.vercel.app/",
+    tags: ["Next.js", "GSAP", "Tailwind CSS"],
     paragraphs: [
-      "An enterprise-grade Learning Management System built to deliver structured, accessible, and engaging educational experiences — for students, instructors, and administrators alike.",
-      "Built on ASP.NET Core MVC, pairing a robust backend architecture with an intuitive, easy-to-navigate interface.",
+      "A home for short films — upload yours, or discover what creators around the world are making, wrapped in a scroll-driven, cinematic browsing experience.",
+      "Built with Next.js and Turbopack, animated with GSAP's ScrollTrigger and Lenis for buttery-smooth scrolling — motion doing the storytelling instead of static grids.",
     ],
   },
   {
@@ -19,6 +19,15 @@ const projects = [
     paragraphs: [
       "Discover, evaluate, and book accommodations with confidence — AI-powered matching, trust scoring, and community verification, wrapped in an immersive property experience.",
       "Built with Next.js, TypeScript, and Supabase, with three core systems — matching, trust scoring, and verification — laying the foundation for a full rental marketplace.",
+    ],
+  },
+  {
+    title: "LearnSphere",
+    link: "https://learnsphere-gu3p.onrender.com/",
+    tags: ["ASP.NET Core MVC", "C#"],
+    paragraphs: [
+      "An enterprise-grade Learning Management System built to deliver structured, accessible, and engaging educational experiences — for students, instructors, and administrators alike.",
+      "Built on ASP.NET Core MVC, pairing a robust backend architecture with an intuitive, easy-to-navigate interface.",
     ],
   },
   {

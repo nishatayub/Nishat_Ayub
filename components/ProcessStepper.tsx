@@ -1,27 +1,26 @@
 "use client";
 
 import type { View } from "./Navigation";
-import { GMAIL_COMPOSE_LINK } from "@/lib/links";
 
 export default function ProcessStepper({ onNavigate }: { onNavigate: (view: View) => void }) {
   const steps = [
     {
+      title: "Frontend Developer",
+      desc: "Turning designs and rough ideas into interfaces that feel obvious — React, Next.js, and a weakness for perfect spacing.",
+      cta: "See the interfaces",
+      action: () => onNavigate("work"),
+    },
+    {
       title: "Full Stack Developer",
-      desc: "Shipping production apps end-to-end — React/Next.js interfaces on Node and ASP.NET backends.",
+      desc: "Same eye for the UI, now wired to Node, PostgreSQL, and ASP.NET on the backend — shipped end-to-end, not just styled.",
       cta: "View my work",
       action: () => onNavigate("work"),
     },
     {
       title: "Research Assistant",
-      desc: "Running GROMACS molecular dynamics simulations and docking pipelines at IIT Delhi.",
-      cta: "Read more",
+      desc: "Trading component trees for molecular ones — GROMACS simulations and docking pipelines at IIT Delhi.",
+      cta: "Read the research",
       action: () => onNavigate("work"),
-    },
-    {
-      title: "Debater & Team Lead",
-      desc: "National debate runner-up and cross-functional team lead — the non-technical half of the resume.",
-      cta: "Get in touch",
-      action: () => window.open(GMAIL_COMPOSE_LINK, "_blank"),
     },
   ];
 
